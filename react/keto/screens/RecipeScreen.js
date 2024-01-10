@@ -19,7 +19,7 @@ const RecipeScreen = () => {
 
   const filterRecipesByCategory = (selectedType) => {
     try {
-      const filteredRecipes = selectedType ? recipes.filter((recipe) => recipe.type === selectedType) : recipes;
+      const filteredRecipes = selectedType ? recipesArray.filter((recipe) => recipesArray.type === selectedType) : recipesArray;
       console.log('Filtered Data', filteredRecipes)
       setData(filteredRecipes)
     } catch (error) {

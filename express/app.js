@@ -11,7 +11,6 @@ const url = 'mongodb://localhost:27017/recipesdb'
 mongoose.connect(url, {  
     useUnifiedTopology: true,
     useNewUrlParser: true,
-    useCreateIndex: true 
 })
 .then(() => {
     console.log("Connected successfully!")

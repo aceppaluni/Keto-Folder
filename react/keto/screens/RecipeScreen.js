@@ -27,10 +27,11 @@ const RecipeScreen = () => {
     }
   } 
 
-  const handelFilter = (text) => [
-    setFilterChoice(text),
+  const handelFilter = (text) => {
+    setFilterChoice(text);
     filterRecipesByCategory(text)
-  ]
+  }
+
   const Types = [
     {label: 'Breakfast', value: 'Breakfast'},
     {label: 'Lunch', value: 'Lunch'},

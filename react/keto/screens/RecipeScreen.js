@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import {Text, View, StyleSheet} from 'react-native';
 import {Card, Button} from 'react-native-elements';
 import Header from '../components/Header';
-//import recipes from '../components/recipesSclice';
+import recipes from '../components/recipesSlice';
 import RNPickerSelect from 'react-native-picker-select';
 import { FlatList } from 'react-native-gesture-handler';
 //import RenderRecipes from '../components/renderRecipes';

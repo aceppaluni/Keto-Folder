@@ -11,20 +11,14 @@ import RenderRecipes from '../components/renderRecipes';
 const RecipeScreen = () => {
   const recipes = useSelector((state) => state.recipes)
   const [filterChoice, setFilterChoice] = useState('')
-  //console.log(recipes)
-
-  // const addRecipe = () => {
-  //   console.log('Recipe Added');
-  // }
 
   const filterRecipesByCategory = (selectedType) => {
-    try {
-      const filteredRecipes = selectedType ? recipes.filter((recipe) => recipe.type === selectedType) : recipes;
-      console.log('Filtered Data', filteredRecipes)
-      //setData(filteredRecipes)
-    } catch (error) {
-      console.log('Error occured', error)
-    }
+    // try {
+    //   const filteredRecipes = selectedType ? recipes.filter((recipe) => recipe.type === selectedType) : recipes;
+    //   return filteredRecipes
+    // } catch (error) {
+    //   console.log('Error occured', error)
+    // }
   } 
 
   const handelFilter = (text) => {

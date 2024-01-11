@@ -8,8 +8,8 @@ export const fetchRecipes = createAsyncThunk(
     'recipes/fetchRecipes',
     async () => {
         try {
-            const r = await axios.get(url + 'recipes');
-            console.log('data:', r.data)
+            const r = await axios.get(url + '/recipes');
+            console.log('data:', r)
             return r.data
         }
         catch (err) {

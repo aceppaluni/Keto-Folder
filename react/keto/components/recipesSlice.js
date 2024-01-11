@@ -2,13 +2,14 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import axios from 'axios'
 
 //const url = 'http://localhost:3000/'
-const url = 'mongodb://localhost:27017/recipesdb.Recipes'
+const url = 'mongodb://localhost:27017/recipesdb'
 
-export const fetchRecipes = createAsyncThunk(
+export const fetchRecipes = createAsyncThunk( 
     'recipes/fetchRecipes',
     async () => {
         try {
-            const r = await axios.get(url + 'recipes');
+            const r = await axios.get(url + 'ecipesdb');
+            console.log('data:', r.data)
             return r.data
         }
         catch (err) {

@@ -11,7 +11,7 @@ import RenderRecipes from '../components/renderRecipes';
 const RecipeScreen = () => {
   const recipes = useSelector((state) => state.recipes)
   const [filterChoice, setFilterChoice] = useState('')
-  console.log(recipes)
+  //console.log(recipes)
 
   // const addRecipe = () => {
   //   console.log('Recipe Added');

@@ -1,17 +1,17 @@
 import React, { useState } from 'react';
 import {Text, View, StyleSheet} from 'react-native';
-import {Card, Button} from 'react-native-elements';
-import Header from '../components/Header';
-import recipes from '../components/recipesSlice';
+//import recipes from '../components/recipesSlice';
 import RNPickerSelect from 'react-native-picker-select';
 import { FlatList } from 'react-native-gesture-handler';
-//import RenderRecipes from '../components/renderRecipes';
+import { useSelector } from 'react-redux';
+import RenderRecipes from '../components/renderRecipes';
 
 
 
 const RecipeScreen = () => {
-  const [data, setData] = useState(recipes)
+  const recipes = useSelector((state) => state.recipes)
   const [filterChoice, setFilterChoice] = useState('')
+  console.log(recipes)
 
   // const addRecipe = () => {
   //   console.log('Recipe Added');
@@ -19,9 +19,9 @@ const RecipeScreen = () => {
 
   const filterRecipesByCategory = (selectedType) => {
     try {
-      const filteredRecipes = selectedType ? recipesArray.filter((recipe) => recipesArray.type === selectedType) : recipesArray;
+      const filteredRecipes = selectedType ? recipes.filter((recipe) => recipe.type === selectedType) : recipes;
       console.log('Filtered Data', filteredRecipes)
-      setData(filteredRecipes)
+      //setData(filteredRecipes)
     } catch (error) {
       console.log('Error occured', error)
     }
@@ -42,7 +42,6 @@ const RecipeScreen = () => {
 
   return (
     <View>
-      <Header />
       <RNPickerSelect 
       value={filterChoice} 
       onValueChange={(text) => handelFilter(text)} 
@@ -63,18 +62,13 @@ const RecipeScreen = () => {
         padding: 10,
       },}}/>
       <FlatList 
-      style={styles.view} 
-      data={data}
-      renderItem={({item: recipe}) => <RenderRecipes  filteredData={[recipe]} />}
-      keyExtractor={(recipe) => recipe.id.toString()}/>
+      style={styles.view}
+      data={recipes.recipesArray}
+      renderItem={({ item: recipe }) => <RenderRecipes filteredData={[recipe]} />}
+      keyExtractor={(recipe) => recipe.id.toString()} 
+      />
     </View>
   )
-
-  // return (
-  //   <View>
-  //     <Text> Recipe Screen</Text>
-  //   </View>
-  // )
 }
 
 const styles = StyleSheet.create({

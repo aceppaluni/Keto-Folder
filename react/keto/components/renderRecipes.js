@@ -5,7 +5,7 @@ import React from 'react'
 const RenderRecipes = ({filteredData}) => {
 
   return (
-   <ScrollView styles={styles.view}>
+   <ScrollView style={styles.view}>
     {filteredData.map((recipe) => (
         <View key={recipe.id}>
             <Card>

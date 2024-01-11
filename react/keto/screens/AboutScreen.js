@@ -23,10 +23,6 @@ const AboutScreen = () => {
 
   return (
     <ScrollView style={styles.view} >
-        <Header />
-        <View >
-            <Text style={styles.titleText}>About</Text>
-        </View>
         <View>
             <Image source={Me} style={styles.image} />
         </View>
@@ -72,6 +68,7 @@ const styles = StyleSheet.create({
     image: {
         width: 110,
         height: 110,
+        marginTop: 14,
         marginRight: 'auto',
         marginLeft: 'auto'
     },

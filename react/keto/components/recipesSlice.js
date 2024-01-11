@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import axios from 'axios'
 
-const url = 'http://localhost:3001'
+const url = 'http://localhost:5000'
 //const url = 'mongodb://localhost:27017/recipesdb'
 
 export const fetchRecipes = createAsyncThunk( 

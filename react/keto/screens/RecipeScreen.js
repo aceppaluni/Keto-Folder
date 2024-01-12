@@ -5,20 +5,22 @@ import RNPickerSelect from 'react-native-picker-select';
 import { FlatList } from 'react-native-gesture-handler';
 import { useSelector } from 'react-redux';
 import RenderRecipes from '../components/renderRecipes';
+import { selectAllRecipes } from '../components/recipesSlice';
 
 
 
 const RecipeScreen = () => {
-  const recipes = useSelector((state) => state.recipes)
+  const recipes = useSelector(selectAllRecipes)
   const [filterChoice, setFilterChoice] = useState('')
 
   const filterRecipesByCategory = (selectedType) => {
-    // try {
-    //   const filteredRecipes = selectedType ? recipes.filter((recipe) => recipe.type === selectedType) : recipes;
-    //   return filteredRecipes
-    // } catch (error) {
-    //   console.log('Error occured', error)
-    // }
+    try {
+      const filteredRecipes = selectedType ? recipes.filter((recipe) => recipe.type === selectedType) : recipes;
+      console.log('data', filteredRecipes)
+      return filteredRecipes
+    } catch (error) {
+      console.log('Error occured', error)
+    }
   } 
 
   const handelFilter = (text) => {

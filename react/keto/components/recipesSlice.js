@@ -39,4 +39,6 @@ export const recipesSlice = createSlice({
     }
 });
 
+export const selectAllRecipes = (state) => state.recipes.recipesArray
+
 export const RecipesReducer = recipesSlice.reducer

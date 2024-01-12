@@ -1,17 +1,19 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import {Text, View, StyleSheet} from 'react-native';
 //import recipes from '../components/recipesSlice';
 import RNPickerSelect from 'react-native-picker-select';
 import { FlatList } from 'react-native-gesture-handler';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import RenderRecipes from '../components/renderRecipes';
-import { selectAllRecipes } from '../components/recipesSlice';
-
-
+import { fetchRecipes, selectAllRecipes } from '../components/recipesSlice';
 
 const RecipeScreen = () => {
-  const recipes = useSelector(selectAllRecipes)
-  const [filterChoice, setFilterChoice] = useState('')
+  const recipes = useSelector((state) => state.recipes)
+  console.log('top data', recipes)
+
+  const dispatch = useDispatch()
+  useEffect(() => {dispatch(fetchRecipes)}, [dispatch])
+  const [filterChoice, setFilterChoice] = useState('') 
 
   const filterRecipesByCategory = (selectedType) => {
     try {

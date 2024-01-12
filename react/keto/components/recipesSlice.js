@@ -13,7 +13,8 @@ export const fetchRecipes = createAsyncThunk(
             return r.data
         }
         catch (err) {
-            return Promise.reject(err)
+           console.error("Error fetching recipes:", err)
+           throw err
         }
     }
 ); 

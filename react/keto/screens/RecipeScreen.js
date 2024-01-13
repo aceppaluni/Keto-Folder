@@ -11,8 +11,11 @@ const RecipeScreen = () => {
   const recipes = useSelector((state) => state.recipes)
   console.log('top data', recipes)
 
-  const dispatch = useDispatch()
-  useEffect(() => {dispatch(fetchRecipes)}, [dispatch])
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(fetchRecipes());
+   }, []);
+   
   const [filterChoice, setFilterChoice] = useState('') 
 
   const filterRecipesByCategory = (selectedType) => {

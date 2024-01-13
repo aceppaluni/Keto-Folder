@@ -8,13 +8,21 @@ import RenderRecipes from '../components/renderRecipes';
 import { fetchRecipes, selectAllRecipes } from '../components/recipesSlice';
 
 const RecipeScreen = () => {
-  const recipes = useSelector((state) => state.recipes)
-  console.log('top data', recipes)
+  // const recipes = useSelector((state) => state.recipes)
+  // console.log('top data', recipes)
 
+  // const dispatch = useDispatch();
+  // useEffect(() => {
+  //   dispatch(fetchRecipes());
+  //  }, []);
+  const recipes = useSelector((state) => state.recipes);
+  console.log("recipes", recipes);
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(fetchRecipes());
-   }, []);
+  if (recipes.isLoading) {
+   dispatch(fetchRecipes());
+  }
+ }, []);
    
   const [filterChoice, setFilterChoice] = useState('') 
 

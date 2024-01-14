@@ -4,7 +4,8 @@ import axios from 'axios'
 
 
 //const url = 'mongodb://localhost:27017/recipesdb'
-const url =  'http://localhost:5000/'
+const url =  'http://10.0.0.11:5000/'
+
 
 // export const fetchRecipes = createAsyncThunk( 
 //     'recipes/fetchRecipes',
@@ -44,7 +45,7 @@ export const fetchRecipes = createAsyncThunk(
     'recipes/fetchRecipes',
     async () => {
       try {
-        const response = await fetch(url + '/recipes');
+        const response = await fetch(url + 'recipes');
         if (!response.ok) {
           console.log(response)
           throw new Error(`HTTP error! Status: ${response.status}`);

@@ -5,20 +5,39 @@ import axios from 'axios'
 const url = 'http://localhost:5000'
 //const url = 'mongodb://localhost:27017/recipesdb'
 
-export const fetchRecipes = createAsyncThunk( 
+// export const fetchRecipes = createAsyncThunk( 
+//     'recipes/fetchRecipes',
+//     async () => {
+//         try {
+//             const r = await fetch(url + '/recipes');
+//             console.log('data:', r)
+//             return r.data
+//         }
+//         catch (err) {
+//            console.error("Error fetching recipes:", err)
+//            throw err
+//         }
+//     }
+// );
+
+export const fetchRecipes = createAsyncThunk(
     'recipes/fetchRecipes',
     async () => {
-        try {
-            const r = await axios.get(url + '/recipes');
-            console.log('data:', r)
-            return r.data
+      try {
+        const response = await fetch(url + '/recipes');
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
         }
-        catch (err) {
-           console.error("Error fetching recipes:", err)
-           throw err
-        }
+  
+        const data = await response.json();
+        console.log('data:', data);
+        return data;
+      } catch (err) {
+        console.error("Error fetching recipes:", err);
+        throw err;
+      }
     }
-);
+  );
 
 export const recipesSlice = createSlice({ 
     name: 'recipes',

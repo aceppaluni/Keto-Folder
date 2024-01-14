@@ -7,59 +7,21 @@ import axios from 'axios'
 const url =  'http://10.0.0.11:5000/'
 
 
-// export const fetchRecipes = createAsyncThunk( 
-//     'recipes/fetchRecipes',
-//     async () => {
-//         try {
-//             const r = await fetch(url + '/recipes');
-//             console.log('data:', r)
-//             return r.data
-//         }
-//         catch (err) {
-//            console.error("Error fetching recipes:", err)
-//            throw err
-//         }
-//     }
-// );
-
-// export const fetchRecipes = createAsyncThunk(  second run w/ brian url 
-//     'recipes/fetchRecipes',
-//     async () => {
-//       try {
-//         const response = await fetch('https://jsonplaceholder.typicode.com/posts');
-//         if (!response.ok) {
-//           throw new Error(`HTTP error! Status: ${response.status}`);
-//         }
-  
-//         const data = await response.json();
-//         console.log('data:', data);
-//         return data;
-//       } catch (err) {
-//         console.error("Error fetching recipes:", err);
-//         throw err;
-//       }
-//     }
-//   );
-
-export const fetchRecipes = createAsyncThunk(
+export const fetchRecipes = createAsyncThunk( 
     'recipes/fetchRecipes',
     async () => {
-      try {
-        const response = await fetch(url + 'recipes');
-        if (!response.ok) {
-          console.log(response)
-          throw new Error(`HTTP error! Status: ${response.status}`);
+        try {
+            const r = await axios.get(url + 'recipes');
+            // console.log('data:', r)
+            console.log('data:', r.data)
+            return r.data
         }
-        console.log(response)
-        const data = await response.json();
-        console.log('data:', data);
-        return data;
-      } catch (err) {
-        console.error("Error fetching recipes:", err);
-        throw err;
-      }
+        catch (err) {
+           console.error("Error fetching recipes:", err)
+           throw err
+        }
     }
-  );
+);
 
 export const recipesSlice = createSlice({ 
     name: 'recipes',

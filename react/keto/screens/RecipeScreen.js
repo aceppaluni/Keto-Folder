@@ -74,7 +74,7 @@ const RecipeScreen = () => {
       style={styles.view}
       data={recipes.recipesArray}
       renderItem={({ item: recipe }) => <RenderRecipes filteredData={[recipe]} />}
-      keyExtractor={(recipe) => recipe.id.toString()} 
+      keyExtractor={(recipe) => recipe._id} 
       />
     </View>
   )

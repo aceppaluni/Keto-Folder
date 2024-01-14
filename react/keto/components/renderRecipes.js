@@ -3,11 +3,11 @@ import {ScrollView, Text, View, StyleSheet} from 'react-native';
 import React from 'react'
 
 const RenderRecipes = ({filteredData}) => {
-
+  
   return (
    <ScrollView style={styles.view}>
     {filteredData.map((recipe) => (
-        <View key={recipe.id}>
+        <View key={recipe._id}>
             <Card>
                 <Card.Title>{recipe.title}</Card.Title>
             </Card>

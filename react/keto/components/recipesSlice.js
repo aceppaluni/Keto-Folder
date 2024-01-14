@@ -2,8 +2,9 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import axios from 'axios'
 //const axios = require('axios')
 
-const url = 'http://localhost:5000'
+
 //const url = 'mongodb://localhost:27017/recipesdb'
+const url =  'http://localhost:5000/'
 
 // export const fetchRecipes = createAsyncThunk( 
 //     'recipes/fetchRecipes',
@@ -20,15 +21,35 @@ const url = 'http://localhost:5000'
 //     }
 // );
 
+// export const fetchRecipes = createAsyncThunk(  second run w/ brian url 
+//     'recipes/fetchRecipes',
+//     async () => {
+//       try {
+//         const response = await fetch('https://jsonplaceholder.typicode.com/posts');
+//         if (!response.ok) {
+//           throw new Error(`HTTP error! Status: ${response.status}`);
+//         }
+  
+//         const data = await response.json();
+//         console.log('data:', data);
+//         return data;
+//       } catch (err) {
+//         console.error("Error fetching recipes:", err);
+//         throw err;
+//       }
+//     }
+//   );
+
 export const fetchRecipes = createAsyncThunk(
     'recipes/fetchRecipes',
     async () => {
       try {
         const response = await fetch(url + '/recipes');
         if (!response.ok) {
+          console.log(response)
           throw new Error(`HTTP error! Status: ${response.status}`);
         }
-  
+        console.log(response)
         const data = await response.json();
         console.log('data:', data);
         return data;

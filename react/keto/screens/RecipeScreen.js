@@ -8,14 +8,6 @@ import RenderRecipes from '../components/renderRecipes';
 import { fetchRecipes } from '../components/recipesSlice';
 
 const RecipeScreen = () => {
-//   const recipes = useSelector((state) => state.recipes);
-//   const dispatch = useDispatch();
-
-//   useEffect(() => {
-//   if (recipes.isLoading) {
-//    dispatch(fetchRecipes());
-//   }
-//  }, []);
   const recipesState = useSelector((state) => state.recipes);
   const dispatch = useDispatch();
 
@@ -43,7 +35,6 @@ const RecipeScreen = () => {
     console.log('type', text)
     setFilterChoice(text);
     filterRecipesByCategory(text);
-    //filterRecipesByCategory(text)
 
   }
 
@@ -77,7 +68,6 @@ const RecipeScreen = () => {
         padding: 10,
       },}}/>
       <FlatList 
-      //data={recipesState.recipesArray}
       data={filterRecipesByCategory(filterChoice)}
       renderItem={({ item: recipe }) => <RenderRecipes filteredRecipes={[recipe]} />}
       keyExtractor={(recipe) => recipe._id} 

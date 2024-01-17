@@ -31,7 +31,7 @@ const RecipeScreen = () => {
     try {
       const recipes = recipesState.recipesArray || []; // new line
       const filteredRecipes = type ? recipes.filter((recipe) => recipe.type === type) : recipes;
-      console.log('data hello')
+      console.log('data:', filteredRecipes)
       return filteredRecipes
     } catch (error) {
       console.log('Error occured', error)
@@ -39,9 +39,12 @@ const RecipeScreen = () => {
   } 
 
 
-  const handelFilter = (text) => {
-    setFilterChoice(text)
-    filterRecipesByCategory(text)
+  const handelFilter = (text, filteredRecipes) => {
+    console.log('type', text)
+    setFilterChoice(text);
+    filterRecipesByCategory(text);
+    //filterRecipesByCategory(text)
+
   }
 
   const Types = [
@@ -74,7 +77,8 @@ const RecipeScreen = () => {
         padding: 10,
       },}}/>
       <FlatList 
-      data={recipesState.recipesArray}
+      //data={recipesState.recipesArray}
+      data={filterRecipesByCategory(filterChoice)}
       renderItem={({ item: recipe }) => <RenderRecipes filteredRecipes={[recipe]} />}
       keyExtractor={(recipe) => recipe._id} 
       />

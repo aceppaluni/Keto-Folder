@@ -1,15 +1,19 @@
-import { Card } from 'react-native-elements';
-import {ScrollView, Text, View, StyleSheet} from 'react-native';
+import { Card, ListItem } from 'react-native-elements';
+import {ScrollView, Text, View, StyleSheet, Image} from 'react-native';
 import React from 'react'
+import icon from '../assets/icon.png'
 
-const RenderRecipes = ({filteredData}) => {
+const RenderRecipes = ({filteredRecipes}) => {
   
   return (
    <ScrollView style={styles.view}>
-    {filteredData.map((recipe) => (
+    {filteredRecipes.map((recipe) => (
         <View key={recipe._id}>
             <Card>
-                <Card.Title>{recipe.title}</Card.Title>
+              <Card.Title>{recipe.title}</Card.Title>
+              <Image source={icon} style={styles.photo}/>
+              <Text>•{recipe.ingredients}</Text>
+              <Text style={styles.description}>{recipe.description}</Text>
             </Card>
         </View>
     ))}
@@ -17,11 +21,17 @@ const RenderRecipes = ({filteredData}) => {
   )
 }
 
-const styles = StyleSheet.create({ 
-    view: {
-      backgroundColor: "black",
-      color: 'pink'
+const styles = StyleSheet.create({
+  photo: {
+    maxWidth: 150,
+    height: 150,
+    borderRadius: 40,
+    marginRight: 'auto',
+    marginLeft: 'auto'
   },
+  description: {
+    margin: 4,
+  }
 });
 
 export default RenderRecipes

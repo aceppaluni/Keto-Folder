@@ -5,6 +5,7 @@ import axios from 'axios'
 
 //const url = 'mongodb://localhost:27017/recipesdb'
 const url =  'http://10.0.0.11:5000/'
+//const url = 'http://localhost:5000/'
 
 
 export const fetchRecipes = createAsyncThunk( 
@@ -13,7 +14,7 @@ export const fetchRecipes = createAsyncThunk(
         try {
             const r = await axios.get(url + 'recipes');
             // console.log('data:', r)
-            console.log('data:', r.data)
+            //console.log('data:', r.data)
             return r.data
         }
         catch (err) {

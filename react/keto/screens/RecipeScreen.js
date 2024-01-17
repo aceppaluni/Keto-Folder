@@ -5,39 +5,42 @@ import RNPickerSelect from 'react-native-picker-select';
 import { FlatList } from 'react-native-gesture-handler';
 import { useDispatch, useSelector } from 'react-redux';
 import RenderRecipes from '../components/renderRecipes';
-import { fetchRecipes, selectAllRecipes } from '../components/recipesSlice';
+import { fetchRecipes } from '../components/recipesSlice';
 
 const RecipeScreen = () => {
-  // const recipes = useSelector((state) => state.recipes)
-  // console.log('top data', recipes)
+//   const recipes = useSelector((state) => state.recipes);
+//   const dispatch = useDispatch();
 
-  // const dispatch = useDispatch();
-  // useEffect(() => {
-  //   dispatch(fetchRecipes());
-  //  }, []);
-  const recipes = useSelector((state) => state.recipes);
-  console.log("recipes", recipes);
+//   useEffect(() => {
+//   if (recipes.isLoading) {
+//    dispatch(fetchRecipes());
+//   }
+//  }, []);
+  const recipesState = useSelector((state) => state.recipes);
   const dispatch = useDispatch();
+
   useEffect(() => {
-  if (recipes.isLoading) {
-   dispatch(fetchRecipes());
-  }
- }, []);
-   
+    if (recipesState.isLoading) {
+      dispatch(fetchRecipes());
+    }
+  }, [recipesState.isLoading, dispatch]);
+
   const [filterChoice, setFilterChoice] = useState('') 
 
-  const filterRecipesByCategory = (selectedType) => {
+  const filterRecipesByCategory = (type) => {
     try {
-      const filteredRecipes = selectedType ? recipes.filter((recipe) => recipe.type === selectedType) : recipes;
-      console.log('data', filteredRecipes)
+      const recipes = recipesState.recipesArray || []; // new line
+      const filteredRecipes = type ? recipes.filter((recipe) => recipe.type === type) : recipes;
+      console.log('data hello')
       return filteredRecipes
     } catch (error) {
       console.log('Error occured', error)
     }
   } 
 
+
   const handelFilter = (text) => {
-    setFilterChoice(text);
+    setFilterChoice(text)
     filterRecipesByCategory(text)
   }
 
@@ -71,20 +74,12 @@ const RecipeScreen = () => {
         padding: 10,
       },}}/>
       <FlatList 
-      style={styles.view}
-      data={recipes.recipesArray}
-      renderItem={({ item: recipe }) => <RenderRecipes filteredData={[recipe]} />}
+      data={recipesState.recipesArray}
+      renderItem={({ item: recipe }) => <RenderRecipes filteredRecipes={[recipe]} />}
       keyExtractor={(recipe) => recipe._id} 
       />
     </View>
   )
 }
-
-const styles = StyleSheet.create({
-  view: {
-      backgroundColor: "blue",
-      color: 'white'
-  },
-})
 
 export default RecipeScreen

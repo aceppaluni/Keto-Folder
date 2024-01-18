@@ -1,7 +1,6 @@
 import React from 'react';
 import {ScrollView, Text, View, StyleSheet, Image, Pressable } from 'react-native';
-import Header from '../components/Header';
-import Me from '../assets/icon.png';
+import image from '../assets/image.jpg';
 import * as MailComposer from 'expo-mail-composer'
 
 const AboutScreen = () => {
@@ -24,22 +23,22 @@ const AboutScreen = () => {
   return (
     <ScrollView style={styles.view} >
         <View>
-            <Image source={Me} style={styles.image} />
+            <Image source={image} style={styles.image} />
         </View>
         <View>
             <Text style={styles.text}>Hello There! </Text>
-            <Text style={styles.text}>Thank you for visting Keto Neato.  
-                This site was created with the intent of provinding resources and information about the keto diet. 
+            <Text style={styles.text}>Thank you for visting Keto Neato! 
+                This site was created with the intent of providing resources and information about the keto diet. 
             </Text>
             <Text style={styles.text}>
-            Our founders have been doing the Keto diet for many years and now they want to share their repcies as well as tips and 
+            Our founders have been doing the Keto diet for many years. Now they want to share their repcipes as well as tips and 
             tricks they have come accross in their journey. 
             </Text>
             <Text style={styles.text}>
-            Please feel free to send us recipies of your own using the link below! 
-            We would love to add them to our list and we will feature your name with your recipie!
+            Please feel free to send us recipes of your own using the link below! 
+            We would love to add them to our list and we will feature your name with your recipe!
             </Text>
-            <Text style={styles.text}>If you have any questions or even recipies of your own youd like to add, send us an email </Text>
+            <Text style={styles.text}>If you have any questions or feedback send us an email! </Text>
         </View>
         <View>
             <Pressable style={styles.button} onPress={() => sendRecipeSubmissionMail()}>

@@ -8,6 +8,12 @@ const RecipeSchema = new Schema({
     },
     ingredients: {
         type: Array,
+    },
+    description: {
+        type: String
+    },
+    type: {
+        type: String
     }
 }, {
     timestamps: true

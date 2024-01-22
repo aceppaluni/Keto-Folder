@@ -3,8 +3,8 @@ import axios from 'axios'
 //const axios = require('axios')
 
 
-//const url =  'http://10.0.0.11:5000/'
-const url =  'http://192.168.0.22:5000/'
+const url =  'http://10.0.0.11:5000/'
+//const url =  'http://192.168.0.22:5000/' 
 
 
 export const fetchRecipes = createAsyncThunk( 

@@ -1,7 +1,7 @@
 import { Card, ListItem } from 'react-native-elements';
 import {ScrollView, Text, View, StyleSheet, Image} from 'react-native';
 import React from 'react'
-import icon from '../assets/icon.png'
+import avocado from '../assets/avocado.webp'
 
 const RenderRecipes = ({filteredRecipes}) => {
   
@@ -11,7 +11,7 @@ const RenderRecipes = ({filteredRecipes}) => {
         <View key={recipe._id}>
             <Card>
               <Card.Title>{recipe.title}</Card.Title>
-              <Image source={icon} style={styles.photo}/>
+              <Image source={{ uri: recipe.url }} style={styles.photo}/>
               <Text>•{recipe.ingredients}</Text>
               <Text style={styles.description}>{recipe.description}</Text>
             </Card>
@@ -23,7 +23,7 @@ const RenderRecipes = ({filteredRecipes}) => {
 
 const styles = StyleSheet.create({
   photo: {
-    maxWidth: 150,
+    width: 150,
     height: 150,
     borderRadius: 40,
     marginRight: 'auto',

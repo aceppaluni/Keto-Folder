@@ -66,8 +66,7 @@ const Main = () => {
   //need the style attribute inside the view tag to make page render and appear correctly
   return (
     <View style={{
-      flex: 1, 
-      paddingTop: Platform.OS === 'ios' ? 0 : Constants.statusBarHeight}} >
+      flex: 1 }} >
       <Drawer.Navigator initialRouteName="Home" drawerContent={customDrawerContent} drawerStyle={{backgroundColor: '#6E5135'}}>
         <Drawer.Screen name="Home" component={HomeNavigator} options={{
           title: 'Home',

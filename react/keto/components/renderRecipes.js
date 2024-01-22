@@ -1,7 +1,6 @@
 import { Card, ListItem } from 'react-native-elements';
 import {ScrollView, Text, View, StyleSheet, Image} from 'react-native';
 import React from 'react'
-import avocado from '../assets/avocado.webp'
 
 const RenderRecipes = ({filteredRecipes}) => {
   

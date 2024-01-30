@@ -13,15 +13,15 @@ Usage
 Contributing
 License
 
-Instilation 
+Instilation: 
 Clone the repository https://github.com/aceppaluni/Keto-Folder
 
-Usage
+Usage:
 Initialize the project and server using NPM start
 Open the project using the expo app available for both IOS and Andriod. 
 
-👏 How to Contribute
+👏 How to Contribute:
 The main purpose of this repository is to provide consumers an easy way to find delcious recipes. 
 
-📄 License
+📄 License:
 React Native is MIT licensed, as found in the LICENSE file.
